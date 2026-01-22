@@ -1,56 +1,86 @@
-# Compilation & Reverse Engineering Process Simulator
+# 🦅 Compilation & RE Process Simulator
 
-A visual, interactive simulator designed to demonstrate the stages of compilation (C/Java) and the basics of Reverse Engineering.
+<div align="center">
 
-## Features
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white)
+![Platform](https://img.shields.io/badge/Platform-Windows-green?style=for-the-badge&logo=windows&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-purple?style=for-the-badge)
 
-- **Multi-Language Support**: Simulate both C and Java compilation workflows.
-- **Visual Steps**: specific stages for:
-  - Source Code
-  - Preprocessing (C) / Bytecode (Java)
-  - Compilation
-  - Assembly / Disassembly
-  - Linking
-  - Execution
-  - **Reverse Engineering**: Strings, Dynamic Analysis, Static Analysis (Disassembly/Decompilation), and Patching.
-- **Interactive**: Edit code, break it to see errors, and visualize the transformation of data.
+**A visual, interactive educational tool to demonstrate the Compilation Process and Reverse Engineering concepts.**
 
-## 🚀 Application
+[Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [Technical Docs](TECHNICAL_MANUAL.md)
 
-This is a **Python Application**. You run it directly from source for the best experience.
+</div>
 
-### Requirements
-- **Python 3.10+**
-- **Modules**: `customtkinter`, `pygments` (Install via `pip install -r requirements.txt`)
-- **Tools**: GCC (MinGW) and Java (JDK) for real compilation.
+---
 
-### 📥 Setup & Run
-1. Install Python dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+## 📖 Overview
 
-2. **[Important]** Ensure you have GCC and Java installed:
-   - **GCC**: Install MinGW-w64 and add `bin` to PATH.
-   - **Java**: Install JDK 17+ and add `bin` to PATH.
+The **Compilation Process Simulator** bridges the gap between high-level code and machine execution. It visualizes every step of transforming C or Java source code into an executable, and then demonstrates how Reverse Engineers deconstruct that same executable.
 
-3. Run the application:
-   ```bash
-   python main.py
-   ```
+Unlike static interactives, this simulator runs **real compilation commands** in the background, providing an authentic learning experience.
 
-*(Note: A standalone executable may be available in releases, but running from source is recommended for stability.)*
+## ✨ Features
 
-## Usage
+- **See the Invisible**: Visualize intermediate artifacts usually hidden from developers (`.i`, `.s`, `.o`, `.class`).
+- **Dual Language Support**: 
+    - **C Lane**: Source → Preprocessing → Compilation → Assembly → Linking → Execution.
+    - **Java Lane**: Source → Bytecode → JVM Execution.
+- **Reverse Engineering Suite**:
+    - **Recon**: Extract ASCII strings from binaries.
+    - **Disassembly**: View raw CPU opcodes and mnemonics.
+    - **Decompilation**: Simulate recovering source code from binaries.
+    - **Patching**: Hex-edit binaries to alter behavior without recompiling.
+- **Strict Mode**: Enforces the use of real-world tools (`GCC` and `JDK`) for accurate simulation.
 
-1. Launch `main.py`.
-2. Select a language (C or Java) from the sidebar.
-3. Advance through the steps using "NEXT STEP".
-4. Explore each stage's output and explanation.
-5. Try modifying the source code and saving to see how it affects the result!
+## 🛠️ Prerequisites
 
-## Troubleshooting
+To run this application efficiently, ensure your environment is set up:
 
-### "System Error" or Crashes?
-Ensure you have the required compilers installed and added to your system PATH. The application runs in **Strict Mode** and expects real tools to be available.
+1.  **Python 3.10+**: [Download Here](https://www.python.org/downloads/)
+2.  **GCC (MinGW)**: Required for C compilation steps. [Installation Guide](https://www.msys2.org/)
+3.  **Java JDK 17+**: Required for Java compilation steps. [Download Here](https://www.oracle.com/java/technologies/downloads/)
 
+> **Note**: The application will check your system `PATH` for these tools. If missing, "Strict Mode" will prevent execution of compilation steps.
+
+## 📥 Installation
+
+1.  **Clone the Repository**:
+    ```bash
+    git clone https://github.com/zis3c/Compilation-and-RE-Process.git
+    cd Compilation-and-RE-Process/simulator
+    ```
+
+2.  **Install Dependencies**:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3.  **Run the Application**:
+    ```bash
+    python main.py
+    ```
+
+## 🖥️ Usage Guide
+
+1.  **Launch**: Run `python main.py` to open the GUI.
+2.  **Select Language**: Choose **C** or **Java** from the left sidebar.
+3.  **Step-by-Step**: Click **NEXT STEP >** to advance through the lifecycle.
+4.  **Interactive**:
+    - **Edit**: You can modify the source code in the first step.
+    - **Break**: Intentionally write bad code to see compiler errors.
+    - **Analyze**: Read the explanations for each step to understand *why* the output looks the way it does.
+
+## 📚 Technical Logic
+
+Curious about how the simulator works under the hood? 
+Check out our **[Technical Manual](TECHNICAL_MANUAL.md)** for a deep dive into the `CompilerBackend`, strict mode enforcement, and architecture.
+
+## 🤝 Contributing
+
+Contributions are welcome! Please run the simulator locally and test changes before submitting a Pull Request.
+
+---
+<div align="center">
+Made with ❤️ for the RE Community
+</div>
