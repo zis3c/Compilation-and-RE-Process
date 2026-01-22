@@ -15,6 +15,7 @@ args = [
     '--onefile',
     '--noconsole',
     f'--add-data={ctk_path};customtkinter/',  # Windows uses ; for separator
+    '--icon=app_icon.ico',
     '--clean',
     '--hidden-import=pkg_resources.extern', # Sometimes needed
 ]
