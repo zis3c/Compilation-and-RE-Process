@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+*.spec
+build/
+source_code/
+.vscode/
+
+# Ignore dist but allow the executable
+dist/*
+!dist/CompilationSimulator.exe
