@@ -10,7 +10,7 @@ import shutil
 class CompilationApp(ctk.CTk):
     def __init__(self):
         super().__init__()
-        self.title("Compilation Process Simulator (Refactored)")
+        self.title("Compilation Process Simulator")
         self.geometry("1400x900")
         
         # Ensure workspace exists
