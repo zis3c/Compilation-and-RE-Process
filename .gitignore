@@ -7,4 +7,4 @@ source_code/
 
 # Ignore dist but allow the executable
 dist/*
-!dist/CompilationSimulator.exe
+
