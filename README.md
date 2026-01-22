@@ -1,11 +1,11 @@
-# Compilation Process Simulator 🦅
+# Compilation Process Simulator
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 [![Status: Active](https://img.shields.io/badge/Status-Active-success.svg)]()
 ![Platform: Windows](https://img.shields.io/badge/Platform-Windows-blue)
 
-A visual, interactive **Educational Tool** designed to demonstrate the lifecycle of C and Java code—from source to execution—and explore the basics of Reverse Engineering. Built for students, educators, and curious developers.
+A visual, interactive **Educational Tool** designed to demonstrate the lifecycle of C and Java code (from source to execution) and explore the basics of Reverse Engineering. Built for students, educators, and curious developers.
 
 <p align="center">
   <img src="ui.png" alt="Simulator UI" width="800">
