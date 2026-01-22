@@ -44,3 +44,14 @@ Download the latest `CompilationSimulator.exe` from this repository. No Python o
 The simulator works in "Mock Mode" by default. For real compilation, ensure you have:
 - **GCC** (MinGW) for C compilation.
 - **JDK** (Java Development Kit) for Java compilation.
+
+## Troubleshooting
+
+### Windows SmartScreen Warning
+When running the `.exe` for the first time, you may see a "Windows protected your PC" message.
+This normally happens because the application is not signed with a digital certificate (which costs money).
+
+To run it:
+1. Click **More info**.
+2. Click **Run anyway**.
+
