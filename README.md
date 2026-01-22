@@ -22,7 +22,7 @@ A visual, interactive **Educational Tool** designed to demonstrate the lifecycle
   - **Patching**: Hex-edit binaries to alter behavior without recompiling.
 - **🛡️ Strict Mode**:
   - Enforces the presence of **Real Tools** (`GCC`, `JDK`).
-  - No "mocking" allowed—what you see is actual tool output.
+  - No "mocking" allowed (what you see is actual tool output).
   - Teaches proper environment setup (PATH variables).
 - **🚀 Interactive details**:
   - Edit code in real-time.
