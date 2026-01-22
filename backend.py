@@ -91,7 +91,7 @@ class CompilerBackend:
             startupinfo = None
             if os.name == 'nt':
                 startupinfo = subprocess.STARTUPINFO()
-                startupinfo.dwFlags |= subprocess.STARTWAIT_CAI
+                startupinfo.dwFlags |= subprocess.STARTF_USESHOWWINDOW
                 startupinfo.wShowWindow = subprocess.SW_HIDE
 
             output = subprocess.check_output(cmd, shell=True, stderr=subprocess.STDOUT, startupinfo=startupinfo)

@@ -15,43 +15,42 @@ A visual, interactive simulator designed to demonstrate the stages of compilatio
   - **Reverse Engineering**: Strings, Dynamic Analysis, Static Analysis (Disassembly/Decompilation), and Patching.
 - **Interactive**: Edit code, break it to see errors, and visualize the transformation of data.
 
-## Installation
+## 🚀 Application
 
-### Option 1: Standalone Executable
-Download the latest `CompilationSimulator.exe` from this repository. No Python or dependencies required.
+This is a **Python Application**. You run it directly from source for the best experience.
 
-### Option 2: Run from Source
-1. Install Python 3.10+.
-2. Install dependencies:
+### Requirements
+- **Python 3.10+**
+- **Modules**: `customtkinter`, `pygments` (Install via `pip install -r requirements.txt`)
+- **Tools**: GCC (MinGW) and Java (JDK) for real compilation.
+
+### 📥 Setup & Run
+1. Install Python dependencies:
    ```bash
    pip install -r requirements.txt
    ```
+
+2. **[Important]** Ensure you have GCC and Java installed:
+   - **GCC**: Install MinGW-w64 and add `bin` to PATH.
+   - **Java**: Install JDK 17+ and add `bin` to PATH.
+
 3. Run the application:
    ```bash
    python main.py
    ```
 
+*(Note: A standalone executable may be available in releases, but running from source is recommended for stability.)*
+
 ## Usage
 
-1. Launch the application.
+1. Launch `main.py`.
 2. Select a language (C or Java) from the sidebar.
 3. Advance through the steps using "NEXT STEP".
 4. Explore each stage's output and explanation.
 5. Try modifying the source code and saving to see how it affects the result!
 
-## Requirements for Full Functionality
-
-The simulator works in "Mock Mode" by default. For real compilation, ensure you have:
-- **GCC** (MinGW) for C compilation.
-- **JDK** (Java Development Kit) for Java compilation.
-
 ## Troubleshooting
 
-### Windows SmartScreen Warning
-When running the `.exe` for the first time, you may see a "Windows protected your PC" message.
-This normally happens because the application is not signed with a digital certificate (which costs money).
-
-To run it:
-1. Click **More info**.
-2. Click **Run anyway**.
+### "System Error" or Crashes?
+Ensure you have the required compilers installed and added to your system PATH. The application runs in **Strict Mode** and expects real tools to be available.
 
