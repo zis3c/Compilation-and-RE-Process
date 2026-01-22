@@ -1,4 +1,4 @@
-# 🦅 Compilation & RE Process Simulator
+# Compilation & RE Process Simulator
 
 <div align="center">
 
