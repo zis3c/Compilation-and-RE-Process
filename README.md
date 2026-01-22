@@ -1,90 +1,109 @@
-# Compilation & RE Process Simulator
+# Compilation Process Simulator 🦅
 
-<div align="center">
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Status: Active](https://img.shields.io/badge/Status-Active-success.svg)]()
+![Platform: Windows](https://img.shields.io/badge/Platform-Windows-blue)
 
-![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white)
-![Platform](https://img.shields.io/badge/Platform-Windows-green?style=for-the-badge&logo=windows&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-purple?style=for-the-badge)
+A visual, interactive **Educational Tool** designed to demonstrate the lifecycle of C and Java code—from source to execution—and explore the basics of Reverse Engineering. Built for students, educators, and curious developers.
 
-<br/>
-<img src="ui.png" alt="Simulator Screenshot" width="800">
-<br/>
-
-**A visual, interactive educational tool to demonstrate the Compilation Process and Reverse Engineering concepts.**
-
-[Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [Technical Docs](TECHNICAL_MANUAL.md)
-
-</div>
-
----
-
-## 📖 Overview
-
-The **Compilation Process Simulator** bridges the gap between high-level code and machine execution. It visualizes every step of transforming C or Java source code into an executable, and then demonstrates how Reverse Engineers deconstruct that same executable.
-
-Unlike static interactives, this simulator runs **real compilation commands** in the background, providing an authentic learning experience.
+<p align="center">
+  <img src="ui.png" alt="Simulator UI" width="800">
+</p>
 
 ## ✨ Features
 
-- **See the Invisible**: Visualize intermediate artifacts usually hidden from developers (`.i`, `.s`, `.o`, `.class`).
-- **Dual Language Support**: 
-    - **C Lane**: Source → Preprocessing → Compilation → Assembly → Linking → Execution.
-    - **Java Lane**: Source → Bytecode → JVM Execution.
+- **Multi-Language Lanes**:
+  - **C Lane**: Source ➔ Preprocessing (`.i`) ➔ Compilation (`.s`) ➔ Assembly (`.o`) ➔ Linking (`.exe`).
+  - **Java Lane**: Source ➔ Bytecode (`.class`) ➔ JVM Execution.
 - **Reverse Engineering Suite**:
-    - **Recon**: Extract ASCII strings from binaries.
-    - **Disassembly**: View raw CPU opcodes and mnemonics.
-    - **Decompilation**: Simulate recovering source code from binaries.
-    - **Patching**: Hex-edit binaries to alter behavior without recompiling.
-- **Strict Mode**: Enforces the use of real-world tools (`GCC` and `JDK`) for accurate simulation.
+  - **Recon**: Extract ASCII strings from compiled binaries.
+  - **Disassembly**: View raw CPU opcodes and mnemonics.
+  - **Patching**: Hex-edit binaries to alter behavior without recompiling.
+- **🛡️ Strict Mode**:
+  - Enforces the presence of **Real Tools** (`GCC`, `JDK`).
+  - No "mocking" allowed—what you see is actual tool output.
+  - Teaches proper environment setup (PATH variables).
+- **🚀 Interactive details**:
+  - Edit code in real-time.
+  - Break code to see compiler errors.
+  - Step-by-step visualization of artifacts.
 
-## 🛠️ Prerequisites
+---
 
-To run this application efficiently, ensure your environment is set up:
+## 🛠️ Tech Stack
 
-1.  **Python 3.10+**: [Download Here](https://www.python.org/downloads/)
-2.  **GCC (MinGW)**: Required for C compilation steps. [Installation Guide](https://www.msys2.org/)
-3.  **Java JDK 17+**: Required for Java compilation steps. [Download Here](https://www.oracle.com/java/technologies/downloads/)
+*   **Core**: [Python 3.10+](https://www.python.org/)
+*   **GUI Framework**: [CustomTkinter](https://github.com/TomSchimansky/CustomTkinter)
+*   **Syntax Highlighting**: [Pygments](https://pygments.org/)
+*   **Backend**: `subprocess` (interacting with GCC/Java)
+*   **Build System**: Python Source Distribution
 
-> **Note**: The application will check your system `PATH` for these tools. If missing, "Strict Mode" will prevent execution of compilation steps.
+---
 
-## 📥 Installation
+## 🚀 Getting Started
 
-1.  **Clone the Repository**:
+### Prerequisites
+
+1.  **Python 3.10+**
+2.  **GCC Compiler** (MinGW-w64 recommended for Windows)
+3.  **Java JDK 17+**
+
+### 📥 Installation
+
+> **[📖 Click here for the TECHNICAL MANUAL (Deep Dive)](TECHNICAL_MANUAL.md)**
+
+1.  **Clone the repository**
     ```bash
     git clone https://github.com/zis3c/Compilation-and-RE-Process.git
     cd Compilation-and-RE-Process/simulator
     ```
 
-2.  **Install Dependencies**:
+2.  **Install Dependencies**
     ```bash
     pip install -r requirements.txt
     ```
 
-3.  **Run the Application**:
-    ```bash
-    python main.py
-    ```
+3.  **Setup Environment**
+    *   Ensure `gcc` and `javac` are accessible in your Command Prompt.
+    *   The app runs in **Strict Mode** and will alert you if they are missing.
 
-## 🖥️ Usage Guide
+### ▶️ Running Locally
 
-1.  **Launch**: Run `python main.py` to open the GUI.
-2.  **Select Language**: Choose **C** or **Java** from the left sidebar.
-3.  **Step-by-Step**: Click **NEXT STEP >** to advance through the lifecycle.
-4.  **Interactive**:
-    - **Edit**: You can modify the source code in the first step.
-    - **Break**: Intentionally write bad code to see compiler errors.
-    - **Analyze**: Read the explanations for each step to understand *why* the output looks the way it does.
+```bash
+python main.py
+```
 
-## 📚 Technical Logic
+---
 
-Curious about how the simulator works under the hood? 
-Check out our **[Technical Manual](TECHNICAL_MANUAL.md)** for a deep dive into the `CompilerBackend`, strict mode enforcement, and architecture.
+## 🐛 Troubleshooting
+
+*   **"GCC/Java not found" error?**
+    *   Add your `bin` folders to the Windows System PATH.
+    *   Restart your terminal after installing compilers.
+*   **Window not showing?**
+    *   Ensure you have installed `customtkinter`.
+*   **Subprocess errors?**
+    *   The app suppresses console windows automatically. If you see crashes, check the `TECHNICAL_MANUAL.md`.
+
+---
 
 ## 🤝 Contributing
 
-Contributions are welcome! Please run the simulator locally and test changes before submitting a Pull Request.
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1.  Fork the project
+2.  Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4.  Push to the branch (`git push origin feature/AmazingFeature`)
+5.  Open a Pull Request
 
 ---
-<div align="center">
-Made with ❤️ for the RE Community
-</div>
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+<center>Built with ❤️ by <b>@zis3c</b></center>
