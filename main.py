@@ -270,12 +270,17 @@ class CompilationApp(ctk.CTk):
             }
             
         elif idx == 1: # Preprocessing
-            res["explanation"] = "Preprocessing: Expansion & Cleanup.\n\nBefore compilation, the Preprocessor handles directives like '#include'.\n\nWhy?\nIt basically 'copy-pastes' the contents of header files (like stdio.h) into your file. This is why the output (right) is so huge compared to your source code."
+            res["explanation"] = "Preprocessing: Expansion & Cleanup.\n\nBEFORE compilation, the Preprocessor handles directives like '#include'.\n\nIt expands the contents of header files (like stdio.h) into your file."
             cmd = f"{GCC_CMD} -E {f_src} -o {f_pre}"
             res["log"] += f"Running: {cmd}\n"
-            bk.run_cmd(cmd, "# Mock Pre", filename=f_pre)
-            res["log"] += self._log_file_saved(f_pre)
+            success, out = bk.run_cmd(cmd, filename=f_pre)
             
+            res["success"] = success
+            if not success: 
+                res["error"] = out
+                return res
+            
+            res["log"] += self._log_file_saved(f_pre)
             res["content"] = {
                 "left_text": self.read_file(f_src), "right_text": self.read_file(f_pre),
                 "left_title": "Source", "right_title": "Preprocessed (Expanded)",
@@ -286,7 +291,7 @@ class CompilationApp(ctk.CTk):
             res["explanation"] = "Compilation: C to Assembly.\n\nThe Compiler translates the messy preprocessed C code into Assembly Language.\n\nWhat is Assembly?\nIt's a low-level, human-readable representation of CPU instructions. It's specific to the processor architecture (like x86-64)."
             cmd = f"{GCC_CMD} -S {f_pre} -o {f_asm}"
             res["log"] += f"Running: {cmd}\n"
-            success, out = bk.run_cmd(cmd, "Mock Asm", filename=f_asm)
+            success, out = bk.run_cmd(cmd, filename=f_asm)
             
             res["success"] = success
             if not success: res["error"] = out
@@ -302,7 +307,7 @@ class CompilationApp(ctk.CTk):
             res["explanation"] = "Assembling: Assembly to Machine Code.\n\nThe Assembler converts the text instructions (like 'mov', 'call') into raw binary opcodes (Machine Code).\n\nResult?\nAn 'Object File' (.o). It contains machine code, but it's incomplete. It has 'holes' where external functions like 'printf' should be."
             cmd = f"{GCC_CMD} -c {f_asm} -o {f_obj}"
             res["log"] += f"Running: {cmd}\n"
-            success, out = bk.run_cmd(cmd, "Mock Bin", binary=True, filename=f_obj)
+            success, out = bk.run_cmd(cmd, binary=True, filename=f_obj)
             
             res["success"] = success
             if not success: res["error"] = out
@@ -318,7 +323,7 @@ class CompilationApp(ctk.CTk):
             res["explanation"] = "Linking: Creating the Executable.\n\nThe Linker combines your Object File with System Libraries to create the final .exe.\n\nWhy does it get bigger?\nThe Linker adds:\n1. C Runtime (Startup code to initialize the app).\n2. Import Tables (telling Windows where to find 'printf').\n3. PE Headers (Metadata for the OS)."
             cmd = f"{GCC_CMD} {f_obj} -o {f_exe}"
             res["log"] += f"Running: {cmd}\n"
-            success, out = bk.run_cmd(cmd, "Mock Exe", binary=True, filename=f_exe)
+            success, out = bk.run_cmd(cmd, binary=True, filename=f_exe)
             
             res["success"] = success
             if not success: res["error"] = out
@@ -531,9 +536,10 @@ class CompilationApp(ctk.CTk):
             res["explanation"] = "Compilation: Source to Bytecode.\n\nThe 'javac' compiler translates your human-readable Java code into 'Bytecode' (the .class file).\n\nWhat is Bytecode?\nIt's a set of instructions for a 'Virtual Machine' (the JVM), not for your physical CPU. This is why Java can run on any OS that has a JVM."
             
             # javac source_code/Hello.java (outputs .class in same dir by default)
+            # javac source_code/Hello.java (outputs .class in same dir by default)
             cmd = f"javac {java_file}"
             res["log"] += f"Running: {cmd}\n"
-            success, out = bk.run_cmd(cmd, "Mock Bytecode", binary=True, filename=class_file)
+            success, out = bk.run_cmd(cmd, binary=True, filename=class_file)
             
             res["success"] = success
             if not success: res["error"] = out
