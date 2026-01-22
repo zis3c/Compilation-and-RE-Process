@@ -69,5 +69,3 @@ Want to add **C++** or **Rust** support?
 
 3.  **Update UI**:
     - Add the new language to the Sidebar options in `ui_components.py`.
-
----
