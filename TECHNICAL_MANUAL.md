@@ -71,15 +71,3 @@ Want to add **C++** or **Rust** support?
     - Add the new language to the Sidebar options in `ui_components.py`.
 
 ---
-
-## 🐛 Troubleshooting Common Issues
-
-### "subprocess/STARTWAIT_CAI not found"
-**Status**: Fixed.
-**Cause**: Used an invalid flag in `backend.py`.
-**Fix**: Switched to `subprocess.STARTF_USESHOWWINDOW` for proper window suppression on Windows.
-
-### "ImportError: GCC_CMD"
-**Status**: Fixed.
-**Cause**: A cleanup refactor accidentally removed a constant import.
-**Fix**: The constant strictly points to "gcc" (system path) now.
