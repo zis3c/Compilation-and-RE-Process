@@ -6,6 +6,7 @@ import shutil
 # Constants
 SOURCE_FILE_C = "source_code/hello.c"
 SOURCE_FILE_JAVA = "source_code/Hello.java"
+GCC_CMD = "gcc"
 
 class CompilerBackend:
     def __init__(self):
