@@ -6,6 +6,10 @@
 ![Platform](https://img.shields.io/badge/Platform-Windows-green?style=for-the-badge&logo=windows&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-purple?style=for-the-badge)
 
+<br/>
+<img src="ui.png" alt="Simulator Screenshot" width="800">
+<br/>
+
 **A visual, interactive educational tool to demonstrate the Compilation Process and Reverse Engineering concepts.**
 
 [Features](#-features) • [Installation](#-installation) • [Usage](#-usage) • [Technical Docs](TECHNICAL_MANUAL.md)
