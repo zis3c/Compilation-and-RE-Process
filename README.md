@@ -51,7 +51,7 @@ A visual, interactive **Educational Tool** designed to demonstrate the lifecycle
 
 ### 📥 Installation
 
-> **[📖 Click here for the TECHNICAL MANUAL (Deep Dive)](TECHNICAL_MANUAL.md)**
+
 
 1.  **Clone the repository**
     ```bash
@@ -84,7 +84,7 @@ python main.py
 *   **Window not showing?**
     *   Ensure you have installed `customtkinter`.
 *   **Subprocess errors?**
-    *   The app suppresses console windows automatically. If you see crashes, check the `TECHNICAL_MANUAL.md`.
+    *   The app suppresses console windows automatically. If you see crashes, check your environment.
 
 ---
 
